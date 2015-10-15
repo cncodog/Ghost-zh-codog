@@ -17,7 +17,7 @@ Ghost 目由非盈利性组织 **Ghost Foundation** 和一群优秀的独立[贡
 **NOTE: If you’re stuck, can’t get something working or need some help, please head on over and join our [Slack community](https://ghost.org/slack/) rather than opening an issue.**
 
 
-# 快速安装 
+# 快速安装
 
 安装前请确保已经安装了 Node.js - 我们建议使用 **Node v0.10.x** 的最新版本。
 
