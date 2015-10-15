@@ -5,6 +5,3 @@
 [submodule "content/themes/roon-zh"]
 	path = content/themes/roon-zh
 	url = https://github.com/ghostchina/Roon-zh
-[submodule "content/themes/CDCasper"]
-	path = content/themes/CDCasper
-	url = https://github.com/cncodog/CDCasper.git
