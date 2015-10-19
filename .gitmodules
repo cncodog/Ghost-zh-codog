@@ -7,4 +7,4 @@
 	url = https://github.com/ghostchina/Roon-zh
 [submodule "content/themes/CDCasper"]
 	path = content/themes/CDCasper
-	url = https://github.com/cncodog/CDCasper.git
+	url = https://github.com/cncodog/CDCasper

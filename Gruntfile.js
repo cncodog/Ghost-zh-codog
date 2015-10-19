@@ -42,7 +42,7 @@ var _              = require('lodash'),
         var packagejson = JSON.parse(fs.readFileSync('package.json', {encoding: 'utf8'}));
         var pkgs = _.keys(packagejson.dependencies);
         pkgs = pkgs.concat(_.keys(packagejson.optionalDependencies));
-        
+
         return pkgs.map(function (package) {
             return 'node_modules/' + package + '/**';
         }).concat(['!node_modules/**/test/**']); //remove unsued files
@@ -421,7 +421,7 @@ var _              = require('lodash'),
                         'core/built/**',
                         'core/client/dist/**',
                         'core/client/public/assets/img/contributors/**',
-                        'core/client/app/templates/-contributors.hbs'
+                        'core/client/app/templates/-contributors.hbs'                
                     ]
                 },
                 release: {
