@@ -42,7 +42,7 @@ url = function (options) {
                         }
                     }
                 }
-            });
+            }); }
     return config.urlFor(this, absolute);
 };
 
