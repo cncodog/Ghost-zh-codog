@@ -9,7 +9,8 @@ var hbs             = require('express-hbs'),
     asset;
 
 asset = function (context, options) {
-    var output = '',
+  var output = 'http://cdn.dockerclub.net',
+    //var output = '',
         isAdmin,
         minify;
 
