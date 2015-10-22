@@ -6,12 +6,25 @@
 
 var config = require('../config'),
     image;
-
+/**
 image = function (options) {
     var absolute = options && options.hash.absolute;
 
     if (this.image) {
         return config.urlFor('image', {image: this.image}, absolute);
+    }
+};**/
+
+image=function(options){
+    varabsolute=options&&options.hash.absolute,
+        imgPath=this.image;
+    if(this.image){
+        // cdn assets
+        // 如果设定了cdn，那么对内容添加cdn
+        if(config['cdn']&&config['cdn']['assets']){
+            imgPath=config['cdn']['assets']+this.image;
+        }
+        returnconfig.urlFor('image',{image:imgPath},absolute);
     }
 };
 
