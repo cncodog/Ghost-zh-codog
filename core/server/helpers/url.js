@@ -29,7 +29,7 @@ url = function (options) {
 
     // compressing page content can improve the response speed
         // 较稳妥的压缩页面输出内容，提高响应速度，markdown转换之后，效果明显。
-        this.body=this.body.replace(/>(\n*|\r*|\s*)</gm,'><').replace(/>(\s*|\n*|\r*)/gm,'>');
+    /**    this.body=this.body.replace(/>(\n*|\r*|\s*)</gm,'><').replace(/>(\s*|\n*|\r*)/gm,'>');
         // enable cdn for post content
         if(config['cdn']&&config['cdn']['assets']){
             this.body=this.body.replace(/<img.*?src=\"(.*?)\".*?\/?>/g,function(src,uri){
@@ -42,7 +42,7 @@ url = function (options) {
                         }
                     }
                 }
-            }); }
+            }); }**/
     return config.urlFor(this, absolute);
 };
 

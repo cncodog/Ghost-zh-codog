@@ -27,7 +27,7 @@ excerpt = function (options) {
 
     // truncate for GBK when use character mode
         // 中文内容截断，根据字符的方式
-        if(truncateOptions.characters){
+      /**  if(truncateOptions.characters){
             // remove heading tags with content and other html tags
             excerpt=excerpt.replace(/<h\d.*?\/h\d>/gi,'');
             excerpt=excerpt.replace(/<\/?[^>]+>/gi,'');
@@ -59,7 +59,7 @@ excerpt = function (options) {
             // Strip other html
             excerpt=excerpt.replace(/<\/?[^>]+>/gi,'');
             excerpt=excerpt.replace(/(\r\n|\n|\r)+/gm,' ');
-        }
+        }**/
 
     // Strip other html
     //excerpt = excerpt.replace(/<\/?[^>]+>/gi, '');
