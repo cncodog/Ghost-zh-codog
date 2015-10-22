@@ -37,13 +37,13 @@ asset = function (context, options) {
     }
 
     output += context;
-
+/**
       if(!isAdmin&&config['cdn']&&config['cdn']['assets']){
             output=utils.assetTemplate({
                 source:config['cdn']['assets']+output,
                 version:config.assetHash
             });
-        }else{
+        }else{**/
           if (!context.match(/^favicon\.ico$/)) {
               output = utils.assetTemplate({
                   source: output,
@@ -52,7 +52,7 @@ asset = function (context, options) {
           }
 
 
-        }
+      //  }
 
 
     return new hbs.handlebars.SafeString(output);

@@ -6,15 +6,15 @@
 
 var config = require('../config'),
     image;
-/**
+
 image = function (options) {
     var absolute = options && options.hash.absolute;
 
     if (this.image) {
         return config.urlFor('image', {image: this.image}, absolute);
     }
-};**/
-
+};
+/**
 image=function(options){
     varabsolute=options&&options.hash.absolute,
         imgPath=this.image;
@@ -24,8 +24,8 @@ image=function(options){
         if(config['cdn']&&config['cdn']['assets']){
             imgPath=config['cdn']['assets']+this.image;
         }
-        returnconfig.urlFor('image',{image:imgPath},absolute);
+        return config.urlFor('image',{image:imgPath},absolute);
     }
-};
+};**/
 
 module.exports = image;
