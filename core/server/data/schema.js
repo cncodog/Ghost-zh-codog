@@ -19,7 +19,9 @@ var db = {
             updated_at: {type: 'dateTime', nullable: true},
             updated_by: {type: 'integer', nullable: true},
             published_at: {type: 'dateTime', nullable: true},
-            published_by: {type: 'integer', nullable: true}
+            published_by: {type: 'integer', nullable: true},
+            published_by: {type: 'integer', nullable: true},
+            topic_id: {type: 'string', maxlength: 40, nullable: true}
         },
         users: {
             id: {type: 'increments', nullable: false, primary: true},

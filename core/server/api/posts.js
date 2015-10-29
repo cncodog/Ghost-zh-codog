@@ -6,8 +6,8 @@ var Promise         = require('bluebird'),
     errors          = require('../errors'),
     utils           = require('./utils'),
     pipeline        = require('../utils/pipeline'),
-    club      = require('../third/club'),
-     qs = require('querystring'),
+    thridtopic      = require('../third/third_topic'),
+    qs = require('querystring'),
     docName         = 'posts',
     allowedIncludes = [
         'created_by', 'updated_by', 'published_by', 'author', 'tags', 'fields',
@@ -138,21 +138,28 @@ posts = {
         return pipeline(tasks, object, options).then(function formatResponse(result) {
             if (result) {
                 var post = result.toJSON(options);
-
-//console.log( qs.stringify(post));
-
-
-              //  console.log(s);
+                
+                //thridtopic.addTopic(post,post.author);
                 // If previously was not published and now is (or vice versa), signal the change
+                //post状态是否被改变
                 post.statusChanged = false;
                 if (result.updated('status') !== result.get('status')) {
                     post.statusChanged = true;
+
                     //调用一个同步帖子的方法将帖子同步至Club平台
-                    var status = post.status;
+                  /**  var status = post.status;
                     var updated_by = post.updated_by;
+                    //发布主题
                     if(status == 'published'){
-                      var s  =  club.postSync(post);}
+                      var s  =  club.postSync(post);
+                    }
+                    //撤销发布
+                    if(status == 'draft'){
+
+                    }**/
                 }
+
+
                 return {posts: [post]};
             }
 

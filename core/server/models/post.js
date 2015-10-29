@@ -10,6 +10,7 @@ var _              = require('lodash'),
     events         = require('../events'),
     config         = require('../config'),
     baseUtils      = require('./base/utils'),
+    thridtopic      = require('../third/third_topic'),
     permalinkSetting = '',
     getPermalinkSetting,
     Post,
@@ -73,6 +74,8 @@ Post = ghostBookshelf.Model.extend({
         });
 
         this.on('updated', function onUpdated(model) {
+
+
             model.statusChanging = model.get('status') !== model.updated('status');
             model.isPublished = model.get('status') === 'published';
             model.wasPublished = model.updated('status') === 'published';
@@ -136,10 +139,11 @@ Post = ghostBookshelf.Model.extend({
 
         this.set('html', converter.makeHtml(this.get('markdown')));
 
+
         // disabling sanitization until we can implement a better version
         // this.set('title', this.sanitize('title').trim());
         this.set('title', this.get('title').trim());
-
+  //this.set('uuid','0c9720ab-fa0d-455e-bfb0-7a5c39f66439');
         // ### Business logic for published_at and published_by
         // If the current status is 'published' and published_at is not set, set it to now
         if (this.get('status') === 'published' && !this.get('published_at')) {
@@ -159,6 +163,7 @@ Post = ghostBookshelf.Model.extend({
             }
         }
 
+
         if (this.hasChanged('slug') || !this.get('slug')) {
             // Pass the new slug through the generator to strip illegal characters, detect duplicates
             return ghostBookshelf.Model.generateSlug(Post, this.get('slug') || this.get('title'),
@@ -167,6 +172,29 @@ Post = ghostBookshelf.Model.extend({
                     self.set({slug: slug});
                 });
         }
+        //console.log('topic_id' +JSON.stringify(options));
+      //  console.log('topic_id' +JSON.stringify(attr));
+      //  console.log('topic_id' +JSON.stringify(model));
+      //console.log('topic_id' +JSON.stringify(self));
+    //  console.log('topic_id' +this.get('topic_id'));
+      //当前是发布状态，且存在状态变更
+    if (this.get('status') === 'published' && this.hasChanged('status') && this.get('topic_id')==null) {
+        //var post = result.toJSON(options);
+        return thridtopic.addTopic(this,this.contextUser(options)).
+              then(function then(body){
+                if(body.success){
+                    console.log('published数据同步成功');
+                  self.set({topic_id: body.topic_id});
+                    //this.set('topic_id', body.topic_id);
+                }else{
+                  console.log('published数据同步失败');
+                }
+              });
+            }
+console.log('topic_id' +this.get('topic_id'));
+
+
+
     },
 
     creating: function creating(model, attr, options) {
