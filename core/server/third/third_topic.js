@@ -33,7 +33,7 @@ ThirdTopics.prototype.addTopic = function (post,uid) {
         //var now = moment();
 
 
-        var head_html = '** 作者: '+ actor + '发布了[《' +title+'》](http://blog.dockerclub.net/'+link_url+') '
+        var head_html = '**作者: '+ actor + '发布了[《' +title+'》](http://blog.dockerclub.net/'+link_url+') '
                         +'发布时间:'+ createtime + "**</p>" + markdown;
 
 
