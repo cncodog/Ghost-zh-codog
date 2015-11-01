@@ -29,11 +29,12 @@ ThirdTopics.prototype.addTopic = function (post,uid) {
         var createtime =moment(post.get('created_at')).format("YYYY/MM/DD HH:mm:ss");
         //var pl_time =moment(post.get('created_at'), "MM/DD/YYYY");
         var pl_time  = moment(post.get('created_at')).format("YYYY/MM/DD");
-        var link_url = pl_time  +  '/' + slug;
+      //  var link_url = pl_time  +  '/' + slug;
+    //  var link_url = pl_time  +  '/' + slug;
         //var now = moment();
 
 
-        var head_html = '**作者: '+ actor + '发布了[《' +title+'》](http://blog.dockerclub.net/'+link_url+') '
+        var head_html = '**作者: '+ actor + '发布了[《' +title+'》](http://blog.dockerclub.net/'+slug+') '
                         +'发布时间:'+ createtime + "**</p>" + markdown;
 
 
